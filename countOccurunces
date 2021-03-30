@@ -1,0 +1,58 @@
+let data = "I am not bored. I love javascript. Javascript is superb. I try new things. Javascript is the future"
+
+/*  Object.assign(acc, {
+           [word]: (acc[word])
+             ? acc[word] + 1
+             : 1,
+         }) 
+         } */
+/*     	if(acc[word]) {
+    	        return { ...acc, [word]: acc[word]+1}
+    	      }
+    	      else {
+    	        return {... acc, [word]: 1}
+    	      }
+    	    } */
+
+ var countVal;
+function wordFreq(string) {
+		let replaceDot = string.replace(/[.]/g, '')
+    let words = replaceDot.split(/\s+/)
+    let keys = []
+	  countVal = string.replace(/[.]/g, '')
+    .split(/\s/)
+    .reduce((map, word) =>
+    {
+    	let token = word.toLowerCase()
+    	if(map[token]) {
+      	return { ...map, [token]: map[token]+1}
+      }	else {
+      	return { ...map, [token]: 1}
+      }
+    }, {});
+    
+    console.log(keys)
+/* 	  return  Object.keys(countVal).reduce((a, b) => countVal[a] > countVal[b] ? a : b);  */
+	//return keys.sort(compare)
+  
+  let sortedKeys = Object.keys(countVal).sort(function(a,b) 	{ 
+    return countVal[b] - countVal[a];
+  });
+  return countVal
+  	
+}
+
+let countsData = wordFreq(data)
+
+if(countsData) {
+
+}
+
+function compare(a, b) {
+console.log(countVal)
+	let Ca = countVal[a]
+  let Cb = countVal[b]
+  return Cb-Ca
+}
+
+console.log(wordFreq(data))

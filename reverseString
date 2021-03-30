@@ -1,0 +1,62 @@
+let string='123'
+
+function reverse(string) {
+	var rev = ""
+	for(var i=string.length-1; i>=0; i--) {
+  	rev += string[i]
+  }
+  return rev
+}
+
+function myRevserse3(string) {
+	let str = string.split('')
+	let strLen = str.length
+	let halfIndex = Math.floor(strLen /2)-1
+  let temp = ''
+  
+  for(let i=0;i <= halfIndex; i++) {
+  	temp = str[strLen - i - 1]
+    str[strLen -i - 1]=str[i]
+    str[i] = temp
+  }
+  
+  console.log('string - ',str)
+  return str.join('')
+}
+
+function myRecursionReverse(s) {
+	 return s === '' ? '' : myRecursionReverse(s.substr(1, s.length)) + s[0];
+}
+
+function reverseNew(str) {
+let s = str.split('')
+  return s.reduce((rev, char) => {
+  	console.log(char)
+    console.log('rev - ',rev)
+    return char + rev
+  }, '');
+}
+
+function reverse2(s) {
+	if (s.length < 2)
+    return s;
+  var halfIndex = Math.ceil(s.length / 2);
+  return reverse2(s.substr(halfIndex)) +
+         reverse2(s.substr(0, halfIndex));
+}
+
+function reverse3(s) {
+  s = s.split('');
+  var len = s.length,
+      halfIndex = Math.floor(len / 2) - 1,
+      tmp;
+
+     for (var i = 0; i <= halfIndex; i++) {
+        tmp = s[len - i - 1];
+        s[len - i - 1] = s[i];
+        s[i] = tmp;
+      }
+      return s.join('');
+    }
+
+console.log(reverseNew(string))
